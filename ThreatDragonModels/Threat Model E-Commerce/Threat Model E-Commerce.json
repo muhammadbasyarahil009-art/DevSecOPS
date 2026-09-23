@@ -78,9 +78,9 @@
                 "bf94f782-e173-4c78-8a65-03bf5d8f89cf",
                 "681d296a-e2d5-4dd1-a7bd-7876ff58172f",
                 "e0496454-97cc-4dcc-abb8-327f4f84b081",
-                "6740a1bd-44b3-41ad-adcf-19601e1e49e0",
                 "8d7f7a2a-0c22-4a13-8982-ec91fe70f62e",
-                "b35d2cab-5806-4afd-a317-815f13a0c7da"
+                "b35d2cab-5806-4afd-a317-815f13a0c7da",
+                "6740a1bd-44b3-41ad-adcf-19601e1e49e0"
               ],
               "containedElements": [
                 "17ec2c15-3d1e-46d1-afb2-341f2736f7df",
@@ -1357,60 +1357,6 @@
               "isPublicNetwork": false,
               "protocol": "",
               "threats": [],
-              "trustBoundaryIds": [
-                "3d0776b0-cc4c-465d-bf0f-1cb38ca14f44"
-              ]
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "6740a1bd-44b3-41ad-adcf-19601e1e49e0",
-            "source": {
-              "x": 186,
-              "y": 210
-            },
-            "target": {
-              "cell": "63fee284-f232-473b-a01f-d28ad82e82ec",
-              "port": "cc86cc07-e0ad-4996-8c57-4e8606fa9142"
-            },
-            "vertices": [
-              {
-                "x": 350,
-                "y": 190
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
               "trustBoundaryIds": []
             },
             "labels": [
@@ -1424,7 +1370,13 @@
             "target": {
               "cell": "b516cd8d-4989-452a-9c03-4ced0e3adfdb",
               "port": "cc86cc07-e0ad-4996-8c57-4e8606fa9142"
-            }
+            },
+            "vertices": [
+              {
+                "x": 710,
+                "y": 100
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -1613,6 +1565,60 @@
               "cell": "cccbe6cc-f3d7-42eb-86b7-e80f000ed6b6",
               "port": "e9a24656-6c95-4edc-bed8-9a0f7db0f024"
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Manage Product",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "3d0776b0-cc4c-465d-bf0f-1cb38ca14f44"
+              ]
+            },
+            "labels": [
+              "Manage Product"
+            ],
+            "id": "6740a1bd-44b3-41ad-adcf-19601e1e49e0",
+            "source": {
+              "x": 186,
+              "y": 210
+            },
+            "target": {
+              "cell": "17ec2c15-3d1e-46d1-afb2-341f2736f7df",
+              "port": "36745e60-40b3-4d9b-abb3-b91b58f7012b"
+            },
+            "vertices": [
+              {
+                "x": 320,
+                "y": 190
+              }
+            ]
           },
           {
             "position": {
