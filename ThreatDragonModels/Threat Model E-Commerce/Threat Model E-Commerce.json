@@ -18,7 +18,8 @@
         "placeholder": "Deskripsi diagram STRIDE baru",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.6.2",
-        "cells": []
+        "cells": [],
+        "description": "DFD Sistem E-Commerce"
       }
     ],
     "diagramTop": 1,
