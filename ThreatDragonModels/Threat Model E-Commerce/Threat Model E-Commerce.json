@@ -78,8 +78,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "d11da4a8-1778-4e81-9cc8-cee9d0b9dc51",
             "zIndex": -1,
+            "id": "d11da4a8-1778-4e81-9cc8-cee9d0b9dc51",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "User Trust Boundary",
@@ -569,10 +569,10 @@
               "threats": [
                 {
                   "id": "f69f5502-7b15-4241-8692-df34ae398717",
-                  "title": "New STRIDE threat",
+                  "title": "Pemalsuan Identitas",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
+                  "severity": "High",
+                  "type": "Denial of service",
                   "description": "Penyerang mengirim request dalam jumlah besar sehingga CPU/memory/server terbebani dan pengguna normal mengalami gangguan.",
                   "mitigation": "Terapkan rate limiting, request throttling, timeout, validasi ukuran request, monitoring, serta gunakan reverse proxy/WAF atau mekanisme proteksi DDoS.",
                   "modelType": "STRIDE",
@@ -582,11 +582,11 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 0,
+                "denialOfService": 1,
                 "elevationOfPrivilege": 0
               }
             }
@@ -711,18 +711,26 @@
               "threats": [
                 {
                   "id": "0ce5d51a-b4a0-4cc3-b699-42c43d1d38ef",
-                  "title": "New STRIDE threat",
+                  "title": "Pemalsuan Identitas Pengguna",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Penyerang menggunakan username/password, token, atau session milik pengguna lain untuk masuk ke sistem.",
+                  "mitigation": "Gunakan password hashing (Argon2/bcrypt), autentikasi yang aman, MFA untuk akun sensitif, session/token yang memiliki masa berlaku, serta lakukan invalidasi session setelah logout.",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 3,
                   "score": ""
                 }
-              ]
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -860,7 +868,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Redis chace"
+                "text": "Redis cache"
               },
               "topLine": {
                 "stroke": "red",
@@ -961,7 +969,7 @@
             "id": "0a7fdbd7-ac37-4d5c-b0d8-279fd1cea9d8",
             "data": {
               "type": "tm.Store",
-              "name": "Redis chace",
+              "name": "Redis cache",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -975,10 +983,10 @@
               "threats": [
                 {
                   "id": "07366631-295b-4d15-8878-20f197c862bc",
-                  "title": "New STRIDE threat",
+                  "title": "Kebocoran Session/Data",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Tampering",
+                  "severity": "High",
+                  "type": "Information disclosure",
                   "description": "Data session atau informasi sensitif yang tersimpan di Redis dapat dibaca pihak yang tidak berwenang.",
                   "mitigation": "Gunakan authentication/ACL Redis, batasi akses jaringan, jangan menyimpan data sensitif yang tidak diperlukan, gunakan enkripsi saat komunikasi, dan terapkan expiration/TTL pada session.",
                   "modelType": "STRIDE",
@@ -990,8 +998,8 @@
               "threatFrequency": {
                 "tampering": 1,
                 "repudiation": 0,
-                "informationDisclosure": 0,
-                "denialOfService": 0
+                "informationDisclosure": 2,
+                "denialOfService": 1
               }
             }
           },
@@ -1029,9 +1037,9 @@
               "threats": [
                 {
                   "id": "4b528861-b885-4aec-9a0e-dc2933141bb3",
-                  "title": "New STRIDE threat",
+                  "title": "Manipulasi Request",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
                   "description": "Penyerang mengubah product_id, quantity, harga, atau parameter lain sebelum request diproses Node.js.  ",
                   "mitigation": "Gunakan HTTPS/TLS, validasi dan sanitasi input di backend, jangan mempercayai harga dari frontend, dan ambil harga produk langsung dari database saat checkout.",
@@ -1045,7 +1053,7 @@
                 "3d0776b0-cc4c-465d-bf0f-1cb38ca14f44"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 3,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1064,7 +1072,7 @@
             },
             "vertices": [
               {
-                "x": 520,
+                "x": 540,
                 "y": 110
               }
             ]
@@ -1321,9 +1329,9 @@
               "threats": [
                 {
                   "id": "67affe85-189d-4636-a610-ec2462870204",
-                  "title": "New STRIDE threat",
+                  "title": "Manipulasi Nominal",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Critical",
                   "type": "Tampering",
                   "description": "Data pembayaran seperti nominal, order_id, atau detail transaksi dimodifikasi sehingga nilai pembayaran tidak sesuai dengan order sebenarnya.",
                   "mitigation": "Hitung nominal pembayaran di backend, jangan percaya nominal dari frontend, gunakan signature/HMAC atau mekanisme autentikasi Payment Gateway, HTTPS, serta validasi order_id dan nominal sebelum transaksi diproses.",
@@ -1337,7 +1345,7 @@
                 "3d0776b0-cc4c-465d-bf0f-1cb38ca14f44"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1362,11 +1370,6 @@
             ],
             "tools": {
               "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
                 "boundary",
                 "button-remove",
                 "vertices",
@@ -1710,9 +1713,9 @@
               "threats": [
                 {
                   "id": "936bfe1f-726d-4793-a7dd-46d4af5ab6e2",
-                  "title": "New STRIDE threat",
+                  "title": "Pemalsuan Status Pembayaran",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Critical",
                   "type": "Tampering",
                   "description": "Penyerang mengirim request palsu ke endpoint callback sehingga sistem menganggap transaksi sudah berhasil dibayar",
                   "mitigation": "Verifikasi signature/webhook secret, validasi order_id dan nominal pembayaran, cek status transaksi langsung ke Payment Gateway bila diperlukan, gunakan HTTPS, dan lakukan idempotency pada callback",
@@ -1726,7 +1729,7 @@
                 "3d0776b0-cc4c-465d-bf0f-1cb38ca14f44"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1775,6 +1778,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -1858,7 +1862,6 @@
               ]
             },
             "id": "18fbe9ef-b22a-4ae2-a4be-4e7cd7fd93e2",
-            "zIndex": 11,
             "data": {
               "type": "tm.Process",
               "name": "Order & Checkout",
@@ -1874,10 +1877,10 @@
               "threats": [
                 {
                   "id": "103b9066-a762-4889-aef8-8e3a2c95f43f",
-                  "title": "New STRIDE threat",
+                  "title": "Penyangkalan Transaksi",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
+                  "severity": "Medium",
+                  "type": "Repudiation",
                   "description": "Customer menyangkal pernah membuat order atau melakukan pembayaran karena tidak ada bukti aktivitas yang memadai.",
                   "mitigation": "Terapkan audit logging, simpan user_id, order_id, timestamp, status transaksi, dan aktivitas penting. Log harus dilindungi dari perubahan dan memiliki akses terbatas.",
                   "modelType": "STRIDE",
@@ -1889,7 +1892,7 @@
               "threatFrequency": {
                 "spoofing": 1,
                 "tampering": 0,
-                "repudiation": 0,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
@@ -1917,6 +1920,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -2000,7 +2004,6 @@
               ]
             },
             "id": "55fbc873-10df-45bb-a505-f48c4c225561",
-            "zIndex": 12,
             "data": {
               "type": "tm.Process",
               "name": "Kelola Produk",
@@ -2016,10 +2019,10 @@
               "threats": [
                 {
                   "id": "5ed1599d-e3de-4078-8a94-dfa9dc25c06f",
-                  "title": "New STRIDE threat",
+                  "title": "Customer Mendapat Hak Admin",
                   "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
+                  "severity": "Critical",
+                  "type": "Elevation of privilege",
                   "description": "Customer biasa memanipulasi role atau endpoint sehingga dapat menggunakan fungsi yang seharusnya hanya dimiliki Admin.",
                   "mitigation": "Terapkan RBAC (Role-Based Access Control) di backend, lakukan authorization pada setiap endpoint, jangan hanya menyembunyikan tombol di frontend, dan verifikasi role dari server.",
                   "modelType": "STRIDE",
@@ -2034,7 +2037,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 0
+                "elevationOfPrivilege": 2
               }
             }
           },
@@ -2059,6 +2062,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 13,
             "ports": {
               "groups": {
                 "top": {
@@ -2142,7 +2146,6 @@
               ]
             },
             "id": "377b71b0-993e-4f41-84ef-93df510a3f44",
-            "zIndex": 13,
             "data": {
               "type": "tm.Actor",
               "name": "Payment Gateway",
@@ -2176,6 +2179,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 14,
             "ports": {
               "groups": {
                 "top": {
@@ -2259,7 +2263,6 @@
               ]
             },
             "id": "c87240a9-ccaa-4d3e-85cd-0076c0404ef7",
-            "zIndex": 14,
             "data": {
               "type": "tm.Process",
               "name": "Email Service",
